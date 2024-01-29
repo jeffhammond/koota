@@ -1,6 +1,7 @@
 #ifndef C_PROTOTYPES_H
 #define C_PROTOTYPES_H
 
+#include <stdint.h>
 #include <math.h>
 #include <complex.h>
 
