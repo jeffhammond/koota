@@ -1,6 +1,10 @@
 # Koota
 
-Fortran implementations of MPI Reductions
+Fortran implementations of MPI Reductions.
+
+This is a Finnish word that is roughly equivalent to what "reduction" means in MPI.
+
+The intuitive English pronunciation is wrong.  Listen to https://forvo.com/word/koota/.
 
 # Design
 
@@ -17,6 +21,13 @@ ABSTRACT INTERFACE
     TYPE(C_PTR), VALUE :: invec, inoutvec
     INTEGER(KIND=MPI_COUNT_KIND) :: len
     TYPE(MPI_Datatype) :: datatype
+```
+
+```fortran
+! call C_F_POINTER(cptr,fptr[,shape])
+<type>, pointer, dimension(:) :: fiptr, fioptr
+call C_F_POINTER(invec,fiptr,[len])
+call C_F_POINTER(inoutvec,fioptr,[len])
 ```
 
 Op | Allowed Types
