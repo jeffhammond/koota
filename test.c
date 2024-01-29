@@ -13,6 +13,7 @@ int main(int argc, char* argv[])
 
     float * x = calloc(n,sizeof(float));
     float * y = calloc(n,sizeof(float));
+    printf("n=%zu, x=%p, y=%p\n",n,x,y);
 
     for (size_t i=0; i<n; i++) {
         x[i] = i;
