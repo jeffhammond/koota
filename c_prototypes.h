@@ -2,6 +2,7 @@
 #define C_PROTOTYPES_H
 
 #include <stdint.h>
+#include <stddef.h>
 #include <math.h>
 #include <complex.h>
 
