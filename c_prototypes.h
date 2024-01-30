@@ -1,13 +1,7 @@
 #ifndef C_PROTOTYPES_H
 #define C_PROTOTYPES_H
 
-#include <stdint.h>
 #include <stddef.h>
-#include <math.h>
-#include <complex.h>
-
-// koota_<op>_<type>
-// koota_<op>_<type>_c
 
 void koota_min_real4(void * invec, void * inoutvec, size_t len);
 void koota_max_real4(void * invec, void * inoutvec, size_t len);
@@ -29,6 +23,16 @@ void koota_bxor_real8(void * invec, void * inoutvec, size_t len);
 void koota_land_real8(void * invec, void * inoutvec, size_t len);
 void koota_lor_real8(void * invec, void * inoutvec, size_t len);
 void koota_lxor_real8(void * invec, void * inoutvec, size_t len);
+void koota_min_real10(void * invec, void * inoutvec, size_t len);
+void koota_max_real10(void * invec, void * inoutvec, size_t len);
+void koota_sum_real10(void * invec, void * inoutvec, size_t len);
+void koota_prod_real10(void * invec, void * inoutvec, size_t len);
+void koota_band_real10(void * invec, void * inoutvec, size_t len);
+void koota_bor_real10(void * invec, void * inoutvec, size_t len);
+void koota_bxor_real10(void * invec, void * inoutvec, size_t len);
+void koota_land_real10(void * invec, void * inoutvec, size_t len);
+void koota_lor_real10(void * invec, void * inoutvec, size_t len);
+void koota_lxor_real10(void * invec, void * inoutvec, size_t len);
 void koota_min_real16(void * invec, void * inoutvec, size_t len);
 void koota_max_real16(void * invec, void * inoutvec, size_t len);
 void koota_sum_real16(void * invec, void * inoutvec, size_t len);
@@ -59,6 +63,16 @@ void koota_bxor_complex8(void * invec, void * inoutvec, size_t len);
 void koota_land_complex8(void * invec, void * inoutvec, size_t len);
 void koota_lor_complex8(void * invec, void * inoutvec, size_t len);
 void koota_lxor_complex8(void * invec, void * inoutvec, size_t len);
+void koota_min_complex10(void * invec, void * inoutvec, size_t len);
+void koota_max_complex10(void * invec, void * inoutvec, size_t len);
+void koota_sum_complex10(void * invec, void * inoutvec, size_t len);
+void koota_prod_complex10(void * invec, void * inoutvec, size_t len);
+void koota_band_complex10(void * invec, void * inoutvec, size_t len);
+void koota_bor_complex10(void * invec, void * inoutvec, size_t len);
+void koota_bxor_complex10(void * invec, void * inoutvec, size_t len);
+void koota_land_complex10(void * invec, void * inoutvec, size_t len);
+void koota_lor_complex10(void * invec, void * inoutvec, size_t len);
+void koota_lxor_complex10(void * invec, void * inoutvec, size_t len);
 void koota_min_complex16(void * invec, void * inoutvec, size_t len);
 void koota_max_complex16(void * invec, void * inoutvec, size_t len);
 void koota_sum_complex16(void * invec, void * inoutvec, size_t len);
