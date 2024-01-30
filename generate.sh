@@ -19,26 +19,26 @@ subroutine ${symbol}(invec, inoutvec, len) &
     call C_F_POINTER(inoutvec,fp_inoutvec,[len])
 
     do i=1,len"
-                if [ $op=="sum" ] ; then
-                    echo "        fp_inoutvec(i) = fp_inoutvec(i) + fp_invec(i)"
-                elif [ $op=="prod" ] ; then
-                    echo "        fp_inoutvec(i) = fp_inoutvec(i) * fp_invec(i)"
-                elif [ $op=="land" ] ; then
-                    echo "        fp_inoutvec(i) = fp_inoutvec(i) .AND. fp_invec(i)"
-                elif [ $op=="lor" ] ; then
-                    echo "        fp_inoutvec(i) = fp_inoutvec(i) .OR. fp_invec(i)"
-                elif [ $op=="lxor" ] ; then
-                    echo "        fp_inoutvec(i) = fp_inoutvec(i) .NEQV. fp_invec(i)"
-                elif [ $op=="band" ] ; then
-                    echo "        fp_inoutvec(i) = IAND(fp_inoutvec(i),fp_invec(i))"
-                elif [ $op=="bor" ] ; then
-                    echo "        fp_inoutvec(i) = IOR(fp_inoutvec(i),fp_invec(i))"
-                elif [ $op=="bxor" ] ; then
-                    echo "        fp_inoutvec(i) = IEOR(fp_inoutvec(i),fp_invec(i))"
-                elif [ $op=="max" ] ; then
-                    echo "        fp_inoutvec(i) = MAX(fp_inoutvec(i),fp_invec(i))"
-                elif [ $op=="min" ] ; then
-                    echo "        fp_inoutvec(i) = MIN(fp_inoutvec(i),fp_invec(i))"
+                if [ "${op}" = sum ] ; then
+                    echo "       fp_inoutvec(i) = fp_inoutvec(i) + fp_invec(i)"
+                elif [ "${op}" = prod ] ; then
+                    echo "       fp_inoutvec(i) = fp_inoutvec(i) * fp_invec(i)"
+                elif [ "${op}" = land ] ; then
+                    echo "       fp_inoutvec(i) = fp_inoutvec(i) .AND. fp_invec(i)"
+                elif [ "${op}" = lor ] ; then
+                    echo "       fp_inoutvec(i) = fp_inoutvec(i) .OR. fp_invec(i)"
+                elif [ "${op}" = lxor ] ; then
+                    echo "       fp_inoutvec(i) = fp_inoutvec(i) .NEQV. fp_invec(i)"
+                elif [ "${op}" = band ] ; then
+                    echo "       fp_inoutvec(i) = IAND(fp_inoutvec(i),fp_invec(i))"
+                elif [ "${op}" = bor ] ; then
+                    echo "       fp_inoutvec(i) = IOR(fp_inoutvec(i),fp_invec(i))"
+                elif [ "${op}" = bxor ] ; then
+                    echo "       fp_inoutvec(i) = IEOR(fp_inoutvec(i),fp_invec(i))"
+                elif [ "${op}" = max ] ; then
+                    echo "       fp_inoutvec(i) = MAX(fp_inoutvec(i),fp_invec(i))"
+                elif [ "${op}" = min ] ; then
+                    echo "       fp_inoutvec(i) = MIN(fp_inoutvec(i),fp_invec(i))"
                 fi
 echo "    end do
 end subroutine ${symbol}"
