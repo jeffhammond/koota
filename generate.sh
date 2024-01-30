@@ -14,7 +14,7 @@ subroutine ${symbol}(invec, inoutvec, len) &
     integer(kind=c_size_t), intent(in), value :: len
 
     integer(kind=c_size_t) :: i
-    $t($s), pointer, dimension(:), contiguous :: fp_invec, fp_inoutvec
+    $t(kind=$s), pointer, dimension(:), contiguous :: fp_invec, fp_inoutvec
     call C_F_POINTER(invec,fp_invec,[len])
     call C_F_POINTER(inoutvec,fp_inoutvec,[len])
 
