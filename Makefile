@@ -12,7 +12,7 @@ all: test.x
 test.x: test.o koota.o verify.o
 	$(CC) $(CFLAGS) $^ $(LIBS) -o $@
 
-%.o: %.c
+%.o: %.c c_prototypes.h
 	$(CC) $(CFLAGS) -c $<
 
 %.o: %.F90
