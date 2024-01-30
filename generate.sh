@@ -1,16 +1,9 @@
 #!/bin/bash
 
-#for t in "complex" "real" "integer" "logical" ; do
-for t in "complex" "real" "integer" ; do
-    for size in 1 2 4 8 16 ; do
-        if [ $t=="complex" ] ; then
-            s=$((2*$size))
-        else
-            s=$size
-        fi
-        #for op in "sum" "prod" "min" "max" "band" "bor" "bxor" "land" "lor" "lxor" ; do
-        for op in "sum" "prod" ; do
-            symbol=koota_${op}_${t}${s}
+t=$1
+s=$2
+op=$3
+symbol=koota_${op}_${t}${s}
 echo "
 subroutine ${symbol}(invec, inoutvec, len) &
     bind(C,name=\"${symbol}\")
@@ -49,6 +42,3 @@ subroutine ${symbol}(invec, inoutvec, len) &
                 fi
 echo "    end do
 end subroutine ${symbol}"
-        done
-    done
-done
