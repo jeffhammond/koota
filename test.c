@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
         }
 
         koota_sum_real4(x,y,n);
-        koota_sum_real4(x,yr,n);
+        verify_sum_real4(x,yr,n);
 
         for (size_t i=0; i<n; i++) {
             if (y[i] != yr[i]) {
