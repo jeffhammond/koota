@@ -1,3 +1,7 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <complex.h>
+
 void verify_sum_real4(float * invec, float * inoutvec, size_t len);
 void verify_sum_complex4(_Complex float * invec, _Complex float * inoutvec, size_t len);
 void verify_max_real4(float * invec,float * inoutvec, size_t len);
