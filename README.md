@@ -8,27 +8,22 @@ The intuitive English pronunciation is wrong.  Listen to https://forvo.com/word/
 
 # Design
 
-```fortran
-ABSTRACT INTERFACE
-  SUBROUTINE MPI_User_function(invec, inoutvec, len, datatype)
-    USE, INTRINSIC :: ISO_C_BINDING, ONLY : C_PTR
-    TYPE(C_PTR), VALUE :: invec, inoutvec
-    INTEGER :: len
-    TYPE(MPI_Datatype) :: datatype
-ABSTRACT INTERFACE
-  SUBROUTINE MPI_User_function_c(invec, inoutvec, len, datatype) !(_c)
-    USE, INTRINSIC :: ISO_C_BINDING, ONLY : C_PTR
-    TYPE(C_PTR), VALUE :: invec, inoutvec
-    INTEGER(KIND=MPI_COUNT_KIND) :: len
-    TYPE(MPI_Datatype) :: datatype
-```
+We implement type-specific reductions with the length passed by value as `size_t`
+because these will be called internally after the MPI implementation has 
+determined the type.  We do not need two versions for large-count.
 
+This is necessary because CFI types aren't what MPI operates on,
+and Fortran types aren't necessarily C interoperable, so we cannot
+use `bind(C)` if we declare the arrays with Fortran types.
+If we do not comply with `bind(C)`, then we can't specify the C linkage symbol name.
 ```fortran
 ! call C_F_POINTER(cptr,fptr[,shape])
 <type>, pointer, dimension(:) :: fiptr, fioptr
 call C_F_POINTER(invec,fiptr,[len])
 call C_F_POINTER(inoutvec,fioptr,[len])
 ```
+
+This is the list of reductions required by MPI:
 
 Op | Allowed Types
 -- | -------------
