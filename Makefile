@@ -5,7 +5,7 @@ DEBUG = -g3 -ggdb
 WARN = -Wall -Wextra -Werror #-fmax-errors=3
 CFLAGS = -std=c11 $(WARN) $(DEBUG)
 FFLAGS = -std=f2018 -fall-intrinsics $(WARN) $(DEBUG)
-LIBS = -L/opt/homebrew/Cellar/gcc/13.2.0/lib/gcc/13 -lgfortran -lm
+LIBS = -L/opt/homebrew/Cellar/gcc/13.2.0/lib/gcc/13 -lgfortran
 
 all: test.x
 
