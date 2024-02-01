@@ -143,78 +143,6 @@ subroutine koota_prod_real8(invec, inoutvec, len) &
     end do
 end subroutine koota_prod_real8
 
-subroutine koota_min_real10(invec, inoutvec, len) &
-    bind(C,name="koota_min_real10")
-    use, intrinsic :: iso_c_binding, only : c_ptr, c_size_t, c_f_pointer
-    implicit none
-    type(c_ptr), intent(in), value :: invec
-    type(c_ptr), intent(in), value :: inoutvec
-    integer(kind=c_size_t), intent(in), value :: len
-
-    integer(kind=c_size_t) :: i
-    real(kind=10), pointer, dimension(:), contiguous :: fp_invec, fp_inoutvec
-    call C_F_POINTER(invec,fp_invec,[len])
-    call C_F_POINTER(inoutvec,fp_inoutvec,[len])
-
-    do i=1,len
-       fp_inoutvec(i) = MIN(fp_inoutvec(i),fp_invec(i))
-    end do
-end subroutine koota_min_real10
-
-subroutine koota_max_real10(invec, inoutvec, len) &
-    bind(C,name="koota_max_real10")
-    use, intrinsic :: iso_c_binding, only : c_ptr, c_size_t, c_f_pointer
-    implicit none
-    type(c_ptr), intent(in), value :: invec
-    type(c_ptr), intent(in), value :: inoutvec
-    integer(kind=c_size_t), intent(in), value :: len
-
-    integer(kind=c_size_t) :: i
-    real(kind=10), pointer, dimension(:), contiguous :: fp_invec, fp_inoutvec
-    call C_F_POINTER(invec,fp_invec,[len])
-    call C_F_POINTER(inoutvec,fp_inoutvec,[len])
-
-    do i=1,len
-       fp_inoutvec(i) = MAX(fp_inoutvec(i),fp_invec(i))
-    end do
-end subroutine koota_max_real10
-
-subroutine koota_sum_real10(invec, inoutvec, len) &
-    bind(C,name="koota_sum_real10")
-    use, intrinsic :: iso_c_binding, only : c_ptr, c_size_t, c_f_pointer
-    implicit none
-    type(c_ptr), intent(in), value :: invec
-    type(c_ptr), intent(in), value :: inoutvec
-    integer(kind=c_size_t), intent(in), value :: len
-
-    integer(kind=c_size_t) :: i
-    real(kind=10), pointer, dimension(:), contiguous :: fp_invec, fp_inoutvec
-    call C_F_POINTER(invec,fp_invec,[len])
-    call C_F_POINTER(inoutvec,fp_inoutvec,[len])
-
-    do i=1,len
-       fp_inoutvec(i) = fp_inoutvec(i) + fp_invec(i)
-    end do
-end subroutine koota_sum_real10
-
-subroutine koota_prod_real10(invec, inoutvec, len) &
-    bind(C,name="koota_prod_real10")
-    use, intrinsic :: iso_c_binding, only : c_ptr, c_size_t, c_f_pointer
-    implicit none
-    type(c_ptr), intent(in), value :: invec
-    type(c_ptr), intent(in), value :: inoutvec
-    integer(kind=c_size_t), intent(in), value :: len
-
-    integer(kind=c_size_t) :: i
-    real(kind=10), pointer, dimension(:), contiguous :: fp_invec, fp_inoutvec
-    call C_F_POINTER(invec,fp_invec,[len])
-    call C_F_POINTER(inoutvec,fp_inoutvec,[len])
-
-    do i=1,len
-       fp_inoutvec(i) = fp_inoutvec(i) * fp_invec(i)
-    end do
-end subroutine koota_prod_real10
-
 subroutine koota_min_real16(invec, inoutvec, len) &
     bind(C,name="koota_min_real16")
     use, intrinsic :: iso_c_binding, only : c_ptr, c_size_t, c_f_pointer
@@ -358,42 +286,6 @@ subroutine koota_prod_complex8(invec, inoutvec, len) &
        fp_inoutvec(i) = fp_inoutvec(i) * fp_invec(i)
     end do
 end subroutine koota_prod_complex8
-
-subroutine koota_sum_complex10(invec, inoutvec, len) &
-    bind(C,name="koota_sum_complex10")
-    use, intrinsic :: iso_c_binding, only : c_ptr, c_size_t, c_f_pointer
-    implicit none
-    type(c_ptr), intent(in), value :: invec
-    type(c_ptr), intent(in), value :: inoutvec
-    integer(kind=c_size_t), intent(in), value :: len
-
-    integer(kind=c_size_t) :: i
-    complex(kind=10), pointer, dimension(:), contiguous :: fp_invec, fp_inoutvec
-    call C_F_POINTER(invec,fp_invec,[len])
-    call C_F_POINTER(inoutvec,fp_inoutvec,[len])
-
-    do i=1,len
-       fp_inoutvec(i) = fp_inoutvec(i) + fp_invec(i)
-    end do
-end subroutine koota_sum_complex10
-
-subroutine koota_prod_complex10(invec, inoutvec, len) &
-    bind(C,name="koota_prod_complex10")
-    use, intrinsic :: iso_c_binding, only : c_ptr, c_size_t, c_f_pointer
-    implicit none
-    type(c_ptr), intent(in), value :: invec
-    type(c_ptr), intent(in), value :: inoutvec
-    integer(kind=c_size_t), intent(in), value :: len
-
-    integer(kind=c_size_t) :: i
-    complex(kind=10), pointer, dimension(:), contiguous :: fp_invec, fp_inoutvec
-    call C_F_POINTER(invec,fp_invec,[len])
-    call C_F_POINTER(inoutvec,fp_inoutvec,[len])
-
-    do i=1,len
-       fp_inoutvec(i) = fp_inoutvec(i) * fp_invec(i)
-    end do
-end subroutine koota_prod_complex10
 
 subroutine koota_sum_complex16(invec, inoutvec, len) &
     bind(C,name="koota_sum_complex16")
